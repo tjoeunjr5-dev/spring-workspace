@@ -20,7 +20,7 @@ mapper 내부에 작성한 SQL 문을 org.example 폴더에 존재하는 UsersMa
     resultType=SQL 컬럼들은 자바 객체에서 Users에 해당하는 명칭과 동일하다.
 
     -->
-    <select id="전체유저" resultType="Users">
+    <select id="전체유저" resultType="org.example.Users">
         SELECT * FROM users
     </select>
     <!--
@@ -30,7 +30,7 @@ mapper 내부에 작성한 SQL 문을 org.example 폴더에 존재하는 UsersMa
     #{변수이름} 형태로 작성하는 것은 Java 변수
     SELECT * FROM users WHRE id=#{id}
     -->
-    <select id="하나의유저" resultType="Users">
+    <select id="하나의유저" resultType="org.example.Users">
         SELECT * FROM users WHRE id=#{id}
     </select>
     <!--
