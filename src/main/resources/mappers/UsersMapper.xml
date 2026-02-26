@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+SQL 코드를 자바에서 읽을 수 있도록 작성하는 도구
+Java 개발자들이 자진해서 모여서 만든 도구
+<mapper namespace="${NAME}">
+                   우리가 작성한 파일이름으로 자동 교체된다는 의미
+-->
+
+<!-- mapper = SQL 코드를 감싸서 자바에 전달하겠다.
+     namespace = 어디에 있는 어떤 파일의 자바파일에 전달해야하는지 작성
+
+<mapper namespace="org.example.UsersMapper">
+mapper 내부에 작성한 SQL 문을 org.example 폴더에 존재하는 UsersMapper 파일에 전달할 것이다.
+-->
+<mapper namespace="org.example.UsersMapper">
+    <!-- 아래 SQL문은 select 이다. id="" 로 해당하는 Mapper.java 기능에 이 SQL 문을 전달
+    resultType=SQL 컬럼들은 자바 객체에서 Users에 해당하는 명칭과 동일하다.
+
+    -->
+    <select id="전체유저" resultType="Users">
+        SELECT * FROM users
+    </select>
+    <!--
+    #{프론트엔드에서 소비자가 작성하거나 선택한 데이터를 id 라는 변수 이름에 담아서 sql 전달}
+
+    id     라는 형태로 작성하는 것은 SQL  문
+    #{변수이름} 형태로 작성하는 것은 Java 변수
+    SELECT * FROM users WHRE id=#{id}
+    -->
+    <select id="하나의유저" resultType="Users">
+        SELECT * FROM users WHRE id=#{id}
+    </select>
+    <!--
+                  SQL 컬럼 데이터
+    INSERT INTO users(name,       email, create_at)
+               VALUES(#{name}, #{email},     NOW())
+                 프론트엔드에서 자바로 전달받아 db에 저장할 데이터를 가지고 있는 자바 변수 이름
+                 now() 현재 시간 기준으로 db에 저장하겠다.
+
+    #{변수이름} = 자바 객체에서 선언한 필드 이름 = 변수 = 데이터 공간의 명칭
+    -->
+    <insert id="유저저장">
+        INSERT INTO users(name, email, create_at)
+        VALUES(#{name}, #{email}, NOW())
+    </insert>
+</mapper>
