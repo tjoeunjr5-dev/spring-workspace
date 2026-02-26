@@ -6,83 +6,47 @@
 <head>
     <style>
 
-        /* TODO: body 태그
-           background-color : #f5f5f5
-           font-family      : Arial, sans-serif
-           padding          : 30px
-        */
         body {
             background-color : #f5f5f5;
             font-family      : Arial, sans-serif;
             padding          : 30px;
         }
 
-        /* TODO: h1 태그
-           color            : #333333
-           margin-bottom    : 20px
-        */
         h1 {
             color            : #333333;
             margin-bottom    : 20px;
         }
 
-        /* TODO: .table-wrap 클래스
-           background-color : #ffffff
-           padding          : 20px
-           box-shadow       : 0 2px 4px rgba(0,0,0,0.1)
-        */
         .table-wrap {
             background-color : #ffffff;
             padding          : 20px;
             box-shadow       : 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* TODO: #product-table 아이디
-           width            : 100%
-           border-collapse  : collapse
-        */
         #product-table {
             width            : 100%;
             border-collapse  : collapse;
         }
 
-        /* TODO: #product-table thead
-           background-color : #4CAF50
-           color            : #ffffff
-        */
         #product-table thead {
             background-color : #4CAF50;
             color            : #ffffff;
         }
 
-        /* TODO: #product-table th
-           padding          : 12px 16px
-           text-align       : left
-        */
         #product-table th {
             padding          : 12px 16px;
             text-align       : left;
         }
 
-        /* TODO: #product-table td
-           padding          : 12px 16px
-           border-bottom    : 1px solid #dddddd
-        */
         #product-table td {
             padding          : 12px 16px;
             border-bottom    : 1px solid #dddddd;
         }
 
-        /* TODO: .product-row 클래스
-           background-color : #ffffff
-        */
         .product-row {
             background-color : #ffffff;
         }
 
-        /* TODO: .product-row:hover
-           background-color : #f0f0f0
-        */
         .product-row:hover {
             background-color : #f0f0f0;
         }
