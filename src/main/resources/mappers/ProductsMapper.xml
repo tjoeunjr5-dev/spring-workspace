@@ -5,4 +5,8 @@
 
 <mapper namespace="org.example.ProductsMapper">
 
+    <select id="전체상품조회" resultType="org.example.Products">
+        SELECT * FROM products
+    </select>
+
 </mapper>
