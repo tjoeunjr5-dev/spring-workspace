@@ -31,7 +31,7 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
             <td>${product.stock}</td>
         </tr>
     </table>
-    <a href="" class="btn btn-secondary">목록으로</a>
+    <a href="/" class="btn btn-secondary">목록으로</a>
 </div>
 </body>
 </html>

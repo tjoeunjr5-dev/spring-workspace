@@ -92,6 +92,7 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
             <th>상품번호</th>
             <th>상품이름</th>
             <th>상품가격</th>
+            <th>상품재고</th>
         </tr>
         </thead>
         <tbody>
