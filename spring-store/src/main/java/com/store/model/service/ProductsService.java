@@ -34,4 +34,10 @@ public class ProductsService {
     public List<Products> selectProductAll(){
         return productsMapper.전체상품가져오기();
     }
+    // public 자료형 기능명칭(){} 에서
+    // 자료형은 반드시 return에 해당되는 데이터의 자료형을 선택 선언
+    // 제품 목록이 아니라 하나의 제품만 가져오는 것이기 때문에 List<자료형> 생략
+    public Products 하나의상품가져오는기능(Integer id) {
+        return productsMapper.상품상세가져오기(id);
+    }
 }

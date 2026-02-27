@@ -95,11 +95,28 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
         </tr>
         </thead>
         <tbody>
-        <abc:forEach var="ppp" items="${products}">
+        <abc:forEach var="product" items="${products}">
             <tr>
-                <td>${ppp.id}</td>
-                <td>${ppp.name}</td>
-                <td>${ppp.price}</td>
+                <td>
+                    <!--
+                     // http://localhost:8080/productDetail
+                        @GetMapping("/productDetail")
+
+                    이 코드는
+                    <a href="/?id=${product.id}">${product.id}</a>
+                    아래의 경로 이동
+                    http://localhost:8080/?id=1
+
+                    컨트롤러에서 작성한 상세페이지 위치
+                    http://localhost:8080/productDetail
+                    <a href="/productDetail?id=${product.id}">${product.id}</a>
+                    위와 같이 작성할 경우 /productDetail 에서 id에 해당하는 상세조회 할 수 있다.
+                    -->
+                    <a href="/productDetail?id=${product.id}">${product.id}</a>
+                </td>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>${product.stock}</td>
             </tr>
         </abc:forEach>
         </tbody>

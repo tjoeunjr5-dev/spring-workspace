@@ -30,6 +30,14 @@ public class JspController {
         데이터전달하기.addAttribute("products",SQL에서가져온데이터);
         return "index";
     }
+
+    // http://localhost:8080/productDetail
+    @GetMapping("/productDetail")
+    public String 제품상세보기페이지(Integer id, Model m) {
+        Products p = service.하나의상품가져오는기능(id);
+        m.addAttribute("product",p);
+        return "product_detail";
+    }
 }
 /*
 아래와 같이 작성한 결과가 JSP 나 HTML에서 확인할 수 있는 이유
