@@ -4,7 +4,16 @@
   <groupId>org.example</groupId>
   <artifactId>spring-workspace</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <!--
+  <packaging>jar</packaging>  -> 프로젝트 자체를 자바 파일로 만들어서 실행
+  <packaging>war</packaging>
+  jar : 자바 파일들을 압축한 것 / springboot 쓸 것
+  Java Application aRchive
+  war : 웹 프로젝트 실행할 때 사용 / JSP, Servlet 실행할 때 사용
+       -> 외부 Tomcat 필요 / JSP 사용할 때 필요   JSP + Springboot war 사용
+  Web Application aRchive
+  -->
+  <packaging>war</packaging>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -79,6 +88,16 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jdbc</artifactId>
     </dependency>
+
+    <!--
+    나중에 jdbc servlet 형태로 들어가면 아래의 해당하는 종속성을 추가해야할 수 있다.
+    레거시 = 고전 방식 아래 코드
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.3.20</version>
+    </dependency>
+    -->
   </dependencies>
 
   <build>
