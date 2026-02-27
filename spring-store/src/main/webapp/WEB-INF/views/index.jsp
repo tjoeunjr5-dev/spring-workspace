@@ -27,6 +27,23 @@ pom.xml 이 아니라 <html> 태그 내부에만 작성
 style 에서 개발자가 내부 프로젝트 안에서 작성한 파일을 호출할 때는
 <link rel="stylesheet"  href=""> 형태로 style 코드의 위치를 가져온다.
 
+
+CDN 과 로컬 파일의 차이
+
+CDN = Content Delivery Network 컨텐츠를 인터넷에서 배달하여 사용
+      로딩속도 빠름 버전 관리는 url 에 있는 버전 숫자만 변경하면 됨
+      인터넷 끊기면 디자인 끊김
+      코드를 외부에서 가져오기 때문에 외부에서 연결을 끊으면 코드를 적용한 디자인이 모두 깨짐
+
+로컬파일 = 인터넷이 없어도 사용 가능
+          버전 관리할 때 매번 버전마다 다운로드해서 파일을 교체해야함
+          용량 직접 관리해야함
+실무에서는 로컬파일을 하나 보유하고, CDN 형태로 많이 사용하나 상황에 따라 선택하여 사용
+
+보통 디자인 파일이나 외부 기능 종류
+bootstrap.css          원본파일 - 들여쓰기 주석있음 평균
+bootstrap.min.css      압축파일 - 공백 주석 다 제거한 형태 /
+                       배포(운영)할 때 사용 용량 작음 가져오는 속도 빠름
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="abc" uri="http://java.sun.com/jsp/jstl/core" %>

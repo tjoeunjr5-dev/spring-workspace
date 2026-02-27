@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+TOMCAT = 프로젝트 실행기
+         우리가 만든 index.jsp 와 같은 페이지를 웹 브라우저에서 볼 수 있게 실행시켜주는 프로그램
+          Spring 에는 Tomcat 이라는 프로젝트 실행기 가 기본으로 장착되어 있기 때문에,
+          우리가 따로 servlet 과 같은 인터넷 연결 설정을 해줄 필요 없음
+web.xml = 프로젝트 실행에 있어 필요한 웹 설명서 작성하는 문서
+pom.xml = 백엔드 프로젝트에 필요한 기능 목록표
+          전체적으로 프로젝트에서 bootstrap이나 jstl spring 등 외부 라이브러리를 종합적으로
+          필요한 기능들 작성 maven 에서 자동으로 다운로드받아 나의 프로젝트에 세팅해준다.
+
+maven   = pom.xml 에 적힌 목록을 보고 인터넷에서 자동으로 다운로드를 받아오는 도구
+
+pom.xml 과 script 형태로 bootstrap 을 가져오는 차이
+pom.xml -> 로컬 파일처럼 내 프로젝트에 다운로드 받아서 저장하여 전체적으로 가지고있는 시스템
+script  -> 페이지 들어올 때 마다 기능이나 모듈을 가져와서 실행
+
+tomcat 과 web.xml 버전이 다를 경우 문제 발생
+
+-->
+<!-- <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="3.1"> -->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="4.0">
+
+    <!-- 한글 깨짐 방지 필터 -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 맨 처음 시작 페이지 설정 -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
