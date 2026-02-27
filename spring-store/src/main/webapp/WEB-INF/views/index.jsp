@@ -17,11 +17,29 @@
            URL + URN = URI
 
 --%>
+<%--
+BootStrap과 같은 외부 라이브러리나 프레임워크를 jsp 나 html 에만 적용할 때는
+pom.xml 이 아니라 <html> 태그 내부에만 작성
+
+가져올 때 <script src=""> 형태로 클라이언트 눈에는 보이지 않지만,
+클라이언트가 보는 화면에 영향을 주는 코드를 가져올 때는 <script src=""> 로 가져오기
+
+style 에서 개발자가 내부 프로젝트 안에서 작성한 파일을 호출할 때는
+<link rel="stylesheet"  href=""> 형태로 style 코드의 위치를 가져온다.
+
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="abc" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <script src="
+https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js
+"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
+" rel="stylesheet">
+    <title>메인페이지</title>
+
 </head>
 <body>
 
