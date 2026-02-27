@@ -36,4 +36,9 @@ public interface ProductsMapper {
 
    // ❌ ❌ List<Products> 전체상품가져오기()  ❌ {} ❌;
 
+
+    // 제품이 등록된 순번을 이용해서
+    // SQL에서 해당되는 순번의 제품데이터 select
+    Products 상품상세가져오기(Integer id);
+
 }

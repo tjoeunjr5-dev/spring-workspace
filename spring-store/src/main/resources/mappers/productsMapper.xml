@@ -5,7 +5,14 @@
 
 <mapper namespace="com.store.model.mapper.ProductsMapper">
     <select id="전체상품가져오기" resultType="com.store.model.dto.Products">
-        SELETCT * FROM products
+        <!-- SELETCT * FROM products -->
+        SELECT * FROM products
+    </select>
+    <!-- 자동 정렬 ctrl + alt + l -->
+    <select id="상품상세가져오기" resultType="com.store.model.dto.Products">
+        SELECT *
+        FROM products
+        WHERE id = #{id}
     </select>
 
 </mapper>

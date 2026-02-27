@@ -70,6 +70,41 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
 
 </head>
 <body>
+<!-- class 내부에 작성하는 명칭들은 모두다 BootStrap 에서 가져오는 형태
+     container -> 코드의 큰 컨테이너 테두리
+     mt        -> marginTop 위와 간격
+             0    0px 여백 없음
+             1     4px
+             2     8px
+             3    16px
+             4    24px
+             5    48px
+            auto  자동 가운데 정렬 적용
+
+            60px 주고싶은데요? ======> 직접 css 설정해야 한다.
+            margin-top: 60px   형태로 직접     작성해야 함
+-->
+<div class="container mt-4">
+    <h2>상품 목록</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>상품번호</th>
+            <th>상품이름</th>
+            <th>상품가격</th>
+        </tr>
+        </thead>
+        <tbody>
+        <abc:forEach var="ppp" items="${products}">
+            <tr>
+                <td>${ppp.id}</td>
+                <td>${ppp.name}</td>
+                <td>${ppp.price}</td>
+            </tr>
+        </abc:forEach>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
