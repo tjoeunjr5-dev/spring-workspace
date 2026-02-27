@@ -13,7 +13,9 @@
        -> 외부 Tomcat 필요 / JSP 사용할 때 필요   JSP + Springboot war 사용
   Web Application aRchive
   -->
-  <packaging>war</packaging>
+  <!-- <packaging>war</packaging> -->
+
+  <packaging>jar</packaging>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -82,7 +84,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <scope>annotationProcessor</scope>
+    <!--  <scope>annotationProcessor</scope> -->
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

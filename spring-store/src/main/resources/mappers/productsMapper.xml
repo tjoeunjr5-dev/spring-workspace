@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.store.model.mapper.ProductsMapper">
+    <select id="전체상품가져오기" resultType="com.store.model.dto.Products">
+        SELETCT * FROM products
+    </select>
+
+</mapper>
