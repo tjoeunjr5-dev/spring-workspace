@@ -63,15 +63,10 @@ create_at DATETIME DEFAULT NOW()
 -- create TABEL 에서 주석을 작성할 경우에는 맨 왼쪽에 붙여서 작성
 -- 공백과 함께 주석이 작성될 경우에는 코드로 인식되어 오류 발생할 가능성이 있다.
 CREATE TABLE products (
--- 몇 번 째로 상품을 등록했는지 번호를 자동 등록 기준키로 설정
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(100),
 	price INT,
 	stock INT,
--- 시간을 created_at 이라는 컬럼에 저장
--- 자료형 = 날짜와시간
--- 클라이언트가 날짜컬럼에 데이터를 넣어주지 않으면
--- 기본값으로 현재 시간을 지정해서 알아서 컬럼에 데이터를 추가한다.
 	created_at DATETIME DEFAULT NOW()
 );
 
@@ -95,7 +90,9 @@ VALUES('노트북', 1500000, 10, NOW()),
 
 
 
-
+SELECT *
+FROM products
+WHERE id = 5;
 
 
 

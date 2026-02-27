@@ -1,7 +1,9 @@
 package com.store.controller;
 
 import com.store.model.dto.Products;
+import com.store.model.dto.Users;
 import com.store.model.service.ProductsService;
+import com.store.model.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +16,7 @@ import java.util.List;
 public class JspController {
 
     private final ProductsService service;
-
+    private final UsersService usersService;
     @GetMapping("/")
     public String  indexView(Model 데이터전달하기) {
         // 만약 메인페이지에서 상품 목록을 보여주고 싶다!
@@ -34,11 +36,38 @@ public class JspController {
     // http://localhost:8080/productDetail
     @GetMapping("/productDetail")
     public String 제품상세보기페이지(Integer id, Model m) {
+        /*
+        public Products 하나의상품가져오는기능(Integer id) {
+                    return productsMapper.상품상세가져오기(id);
+        }
+         */
         Products p = service.하나의상품가져오는기능(id);
+        // 지금은 데이터를 무사히 가져오지만 데이터를 잘못 가져올 경우에 대해서
+        // 나중에 처리를 하기 위해 p 라는 변수 이름에 담아둔 것
+        // 나중에 SQL 에서 조회된 결과가 0 일 때 에 대하여 처리를 하기 위해
+        // p 라는 명칭의 공간에 SQL 에서 가져온 데이터를 담아두는 행동 하는 것!
         m.addAttribute("product",p);
         return "product_detail";
     }
+
+
+    // 전체 목록
+    @GetMapping("/users")
+    public String userListView(Model model) {
+        List<Users> data = usersService.selectUserAll();
+        model.addAttribute("xyz", data);
+        return "userList";
+    }
+
+    // 상세보기
+    @GetMapping("/users/detail")
+    public String userDetailView(Integer id, Model model) {
+        Users user = usersService.selectUserOne(id);
+        model.addAttribute("uuuuu", user);
+        return "userDetail";
+    }
 }
+
 /*
 아래와 같이 작성한 결과가 JSP 나 HTML에서 확인할 수 있는 이유
 
