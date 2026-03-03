@@ -23,7 +23,7 @@
         .card {
             border: none;
             /* TODO 3. 카드에 그림자 효과를 주시오 */
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
             /* TODO 4. 카드에 hover시 위로 살짝 올라오는 transition 효과를 주시오 */
             transition: transform;
         }
@@ -56,33 +56,36 @@
 <!-- 조건 : 제목, 설명, 게시판 바로가기 버튼 포함 -->
 <section class="hero text-center">
     <div class="container">
-        <h1>???</h1>
-        <p class="mt-3">???</p>
+        <h1>Spring 게시판에 오신 것을 환영합니다.</h1>
+        <p class="mt-3">봄같은 게시판 입니다.</p>
         <!-- TODO 9. btn-dark 버튼으로 게시판 바로가기 작성하시오 -->
-        <a href="???" class="btn ??? mt-3 px-4">게시판 바로가기</a>
+        <a href="/board/list" class="btn btn-dark mt-3 px-4">게시판 바로가기</a>
     </div>
 </section>
 
 <!-- TODO 10. 카드 2개를 작성하시오 -->
-<!-- 카드1 : 게시물 작성 → /board/write -->
+
 <!-- 카드2 : 게시물 목록 → /board/list -->
 <section class="py-5">
     <div class="container">
         <div class="row g-4 justify-content-center">
-
+            <!-- 카드1 : 게시물 작성 → /board/write -->
             <div class="col-md-4">
                 <div class="card p-4 text-center h-100">
                     <div class="fs-1">📝</div>
-                    <h5 class="mt-3 fw-bold">???</h5>
-                    <p class="text-muted">???</p>
-                    <a href="???" class="btn btn-outline-dark mt-auto">???</a>
+                    <h5 class="mt-3 fw-bold">게시물 작성</h5>
+                    <p class="text-muted">새로운 게시물을 작성해보세요.</p>
+                    <a href="/board/write" class="btn btn-outline-dark mt-auto">작성하기</a>
                 </div>
             </div>
 
             <!-- TODO 11. 게시물 목록 카드를 위와 동일한 형식으로 작성하시오 -->
             <div class="col-md-4">
                 <div class="card p-4 text-center h-100">
-
+                    <div class="fs-1">📜</div>
+                    <h5 class="mt-3 fw-bold">게시물 목록</h5>
+                    <p class="text-muted">등록된 게시물을 확인세요.</p>
+                    <a href="/board/list" class="btn btn-outline-dark mt-auto">목록보기</a>
                 </div>
             </div>
 
@@ -93,7 +96,7 @@
 <!-- TODO 12. 푸터를 완성하시오 -->
 <footer class="text-center py-4 mt-5">
     <div class="container">
-        <small>???</small>
+        <small>&copy; 2026 SpringBoard. All rights reserved.</small>
     </div>
 </footer>
 
