@@ -26,7 +26,7 @@ public class Board {
     /*
     primary key 에 해당하는 컬럼은 Integer 나 Long 인 데이터 공간으로 설정
     이외는 String float int ... 개발자가 만든 자료형 형태로  공간    설정
-    
+
     Integer board_no
       ===> 현재 DB에는 게시물이 0~10개까지 존재한다면
           인터넷주소 : https://www.인터넷.com/게시물/1번게시물
