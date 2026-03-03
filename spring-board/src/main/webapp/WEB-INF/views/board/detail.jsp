@@ -32,14 +32,27 @@
             <a href="/board/edit?no=${board.board_no}" class="btn btn-warning">수정</a>
 
 
-            <button type="button" class="btn btn-danger"
+            <%-- <button type="button" class="btn btn-danger"
                     onclick="location.href='/board/delete?no=${board.board_no}'">삭제</button>
 
+                    주석에서 <!-- --> 과 < % -- -- % > 차이
+            < % -- -- % > 은 자바에서 가져오는 변수를 작성한 공간까지 모두 전체 주석 ${ }
+
+            <! --  -- >   은 자바에서 가져오는 변수는 주석처리가 안됨 jsp 확장자 안에서는 되도록이면 % 주석 사용
+            --%>
+
             <button type="button" class="btn btn-danger"
-                    onclick="location.href='/board/delete?no=${board.board_no}'">삭제</button>
+                    onclick="게시물삭제기능${board.board_no}">삭제</button>
         </div>
     </div>
 </div>
+<script>
+    function 게시물삭제기능(board_no) {
+        if(confirm("정말 삭제하시겠습니까?")) {
+            location.href = "/board/delete?no=" + board_no;
+        }
+    }
+</script>
 
 </body>
 </html>

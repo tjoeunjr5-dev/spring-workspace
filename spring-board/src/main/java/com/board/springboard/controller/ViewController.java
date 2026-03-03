@@ -65,4 +65,33 @@ public class ViewController {
         boardService.writeBoard(board);
         return "redirect:/board/list";
     }
+
+    // ViewController.java
+
+// TODO 1. 수정 화면을 보여주기 위한 GET 매핑 주소를 작성하시오.
+    @???("/board/edit")
+    public String editView(@RequestParam("no") int board_no, Model model) {
+
+        // TODO 2. 기존 게시물 데이터를 불러와 수정창에 미리 채워주기 위해 서비스를 호출하시오.
+        // 힌트: 상세보기와 동일하게 단일 게시물 조회 메서드를 사용합니다.
+        Board board = ???.boardDetail(board_no);
+
+        // TODO 3. 모델(Model)을 사용해 가져온 데이터를 "board"라는 이름으로 전달하시오.
+        model.addAttribute("???", board);
+
+        // TODO 4. board 폴더 안의 edit.jsp 파일을 열도록 리턴값을 작성하시오.
+        return "???";
+    }
+
+
+    // TODO 5. 삭제 처리를 위한 GET 매핑 주소를 작성하시오. (상세보기의 삭제 버튼 링크 참고)
+    @GetMapping("???")
+    public String deleteBoard(@RequestParam("no") int board_no) {
+
+        // TODO 6. 서비스의 삭제 기능을 호출하여 DB에서 해당 번호의 글을 삭제하시오.
+        boardService.???(board_no);
+
+        // TODO 7. 삭제가 완료된 후 게시물 목록(/board/list)으로 화면을 강제 이동(리다이렉트) 시키시오.
+        return "???";
+    }
 }
