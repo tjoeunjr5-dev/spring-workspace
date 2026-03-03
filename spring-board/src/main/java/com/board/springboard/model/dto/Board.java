@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 // lombok 에서 만들어진 기능을 가져와서 사용하는 어노테이션들 @=어노테이션
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class Board {
+    // primary key를 이용해서
+    // 추가 / 수정 / 삭제 주로 진행
     private Integer board_no;
     private String title;
     private String content;
