@@ -6,6 +6,8 @@ import com.board.springboard.model.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -19,13 +21,29 @@ public class ViewController {
     }
 
     @GetMapping("/")
-    public String indexView(){
+    public String indexView() {
         return "index";
     }
 
+    /*
+    <a href="/board/detail?no=${board.board_no}">
+        ${board.title}
+    </a>
+     */
+    @GetMapping("/board/detail")
+    public String detailView(@RequestParam("no") int board_no, Model model) {
+        // 조회수 증가 및 상세 데이터 가져오기 처리
+        // 가져온 데이터를 board 폴더 내에 있는 detail 전달
+
+        Board boardData = boardService.boardDetail(board_no);
+        model.addAttribute("board", boardData);
+        return "board/detail";
+    }
+
+
     // /board/list
     @GetMapping("/board/list")
-    public String listView(Model model){
+    public String listView(Model model) {
         List<Board> boardListData = boardService.findAllBoard();
         model.addAttribute("boardLists", boardListData);
         /*
@@ -38,7 +56,13 @@ public class ViewController {
 
     // /board/write
     @GetMapping("/board/write")
-    public String writeView(){
+    public String writeView() {
         return "board/write";
+    }
+
+    @PostMapping("/board/write")
+    public String wrtieBoard(Board board) {
+        boardService.writeBoard(board);
+        return "redirect:/board/list";
     }
 }
