@@ -27,23 +27,31 @@
     <select id="단일게시물" resultType="com.board.springboard.model.dto.Board">
         SELECT *
         FROM board
-        WHERE board_no = #{???}
+        WHERE board_no = #{board_no}
     </select>
 
     <!-- 게시물 추가 -->
     <insert id="게시물추가" parameterType="com.board.springboard.model.dto.Board">
         INSERT INTO board (title, content, writer, created_at, view_count)
-        VALUES (#{???}, #{???}, #{???}, NOW(), 0)
+        VALUES (#{title}, #{content}, #{writer}, NOW(), 0)
     </insert>
 
     <!-- 게시물 수정 -->
-    <update id="게시물수정" parameterType="Board">
-        <!-- SQL을 작성하시오 -->
+    <update id="게시물수정" parameterType="com.board.springboard.model.dto.Board">
+       UPDATE board
+       SET title = #{title}, content = #{content}
+       WHERE board_no = #{board_no}
     </update>
 
     <!-- 게시물 삭제 -->
-    <delete id="게시물삭제">
-        <!-- SQL을 작성하시오 -->
+    <delete id="게시물삭제" parameterType="int">
+        DELETE FROM board
+        WHERE board_no = #{board_no}
     </delete>
-
+    <!-- 조회수 수정 -->
+    <update id="조회수수정" parameterType="int">
+        UPDATE board
+        SET view_count = view_count + 1
+        WHERE board_no = #{board_no}
+    </update>
 </mapper>
