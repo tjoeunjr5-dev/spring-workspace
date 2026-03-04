@@ -27,7 +27,9 @@
 
             <div class="mb-3">
                 <label class="form-label">이메일</label>
-                <input type="email" name="email" class="form-control" placeholder="이메일을 입력하세요" required>
+                <input type="email" name="email"
+                       class="form-control"
+                       placeholder="이메일을 입력하세요" required>
             </div>
             <c:if test="${param.error == 'fail'}">
                 <div class="alert alert-danger mt-2">이메일 또는 정보가 올바르지 않습니다.</div>

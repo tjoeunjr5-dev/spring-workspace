@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -36,7 +36,6 @@
     <li class="nav-item">
         <a class="nav-link" href="/board/list">게시판</a>
     </li>
-
     <c:if test="${empty sessionScope.loginUser}">
         <li class="nav-item">
             <a class="nav-link" href="/user/register">회원가입</a>
@@ -45,14 +44,10 @@
             <a class="nav-link" href="/user/login">로그인</a>
         </li>
     </c:if>
-
     <c:if test="${not empty sessionScope.loginUser}">
-
-        <%-- 출력 형식 : "홍길동님 환영해요!" --%>
         <li class="nav-item">
             <span class="nav-link">${sessionScope.loginUser.name}님 환영해요!</span>
         </li>
-
         <li class="nav-item">
             <a class="nav-link" href="/user/logout">로그아웃</a>
         </li>
