@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -31,21 +32,33 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="/">SpringBoard</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/board/list">게시판</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/user/register">회원가입</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="/board/list">게시판</a>
+    </li>
+
+    <c:if test="${empty sessionScope.loginUser}">
+        <li class="nav-item">
+            <a class="nav-link" href="/user/register">회원가입</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/user/login">로그인</a>
+        </li>
+    </c:if>
+
+    <c:if test="${not empty sessionScope.loginUser}">
+
+        <%-- 출력 형식 : "홍길동님 환영해요!" --%>
+        <li class="nav-item">
+            <span class="nav-link">${sessionScope.loginUser.name}님 환영해요!</span>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/user/logout">로그아웃</a>
+        </li>
+    </c:if>
+
+</ul>
 
 <section class="hero text-center">
     <div class="container">
