@@ -28,4 +28,13 @@ public interface UserMapper {
      *               존재하지 않으면 0 반환
      */
     int 이메일중복체크(String email);
+
+    // 조건 : 매개변수 = String email / 반환타입 = User
+    // 매개변수는 () 내부에서 사용하는 명칭    (자료형 매개변수이름)
+    // 반환타입은 기능명칭 앞과 접근제어자 뒤에 오는 타입
+    // String,int,Long, boolean 등 다양한 자료형 작성가능하며 개발자가 만들어놓은
+    // class 타입의 자료형 또한 반환타입에 들어갈 수 있다.
+    // 외부 class 에서 기능을 사용만 하고, 기능에 대한 결과를 반환할 필요가 없을 경우
+    // void(=return할 데이터 존재하지 않음)로 표기 가능
+    User  로그인( String email );
 }

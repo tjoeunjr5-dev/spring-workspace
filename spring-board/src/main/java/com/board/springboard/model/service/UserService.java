@@ -57,4 +57,15 @@ public class UserService {
         return true; // sql 에 저장이 완료되었다면 회원가입 완료를 클라이언트에게 전달하겠다.
     }
 
+
+    /**
+     * 로그인 처리 메서드
+     * 이메일로 유저를 조회하여 존재하면 해당 유저 반환, 없으면 null 반환
+     * @param email 로그인 시 입력한 이메일
+     * @return 조회된 User 객체 / 존재하지 않으면 null
+     */
+    public User 로그인(String email) {
+        return userMapper.로그인(email);
+    }
+
 }

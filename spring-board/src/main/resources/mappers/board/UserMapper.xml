@@ -21,4 +21,10 @@
         WHERE email = #{email}
     </select>
 
+    <select id="로그인" parameterType="String" resultType="com.board.springboard.model.dto.User">
+        SELECT *
+        FROM users
+        WHERE email = #{email}
+    </select>
+
 </mapper>
