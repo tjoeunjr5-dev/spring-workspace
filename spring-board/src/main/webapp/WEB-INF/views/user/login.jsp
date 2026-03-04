@@ -42,7 +42,14 @@
             <div class="text-center mt-3">
                 <a href="/user/register" class="text-muted">계정이 없으신가요? 회원가입</a>
             </div>
-
+            <div class="text-center mt-2">
+                <!--
+                href 에는 .jsp 파일 이름 쓰는 것이 아니라
+                @GetMapping() 이나 @__Mapping() 에 연결된 "" 내부에 작성되어 있는
+                주소 데이터를 작성하는 것이다.
+                -->
+                <a href="/user/find-email" class="text-muted">이메일 찾기</a>
+            </div>
         </form>
     </div>
 </div>
