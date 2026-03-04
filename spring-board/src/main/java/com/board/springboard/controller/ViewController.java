@@ -3,6 +3,7 @@ package com.board.springboard.controller;
 
 import com.board.springboard.model.dto.Board;
 import com.board.springboard.model.service.BoardService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,13 +13,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller // jsp 나 html 템플릿과 소비자가 연결해야하는 api 주소 작성
+@RequiredArgsConstructor // 이 한줄이 생성자 코드를 자동 생성해준다.
 public class ViewController {
-
     private final BoardService boardService;
-
+    /*
+    아래 생성자 매개변수 코드를 @RequiredArgsConstructor 어노테이션으로
+    대체하여 사용할 수 있다.
+    생성자 직접 작성방법
+                             서비스를 매개변수로 받아서
     public ViewController(BoardService boardService) {
-        this.boardService = boardService;
+        this.boardService = boardService; -> 클래스 필드에 직접 대입해서 사용하겠다.
     }
+     */
 
     /**
      * 메인 페이지로 이동
