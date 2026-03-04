@@ -6,13 +6,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-// TODO 1. @Controller 어노테이션을 작성하시오
-// TODO 2. @RequiredArgsConstructor 어노테이션을 작성하시오
+@Controller
+@RequiredArgsConstructor
 public class UserController {
 
-    // TODO 3. UserService 를 주입받는 필드를 작성하시오
-    private final ???
+    private final UserService userService;
 
     /**
      * 회원가입 페이지 이동
@@ -20,7 +18,7 @@ public class UserController {
      */
     // TODO 4. 회원가입 페이지로 이동하는 GET 매핑 주소를 작성하시오 (/user/register)
     public String registerView() {
-        return "???";
+        return "user/register";
     }
 
     /**
@@ -32,13 +30,18 @@ public class UserController {
      */
     // TODO 5. 회원가입 처리하는 POST 매핑 주소를 작성하시오 (/user/register)
     public String register(User user) {
+        /*
+        UserService 의 회원가입 기능을 실행한다.
+        클라이언트가 입력한 회원 정보(user)를 전달하며,
+        회원가입 처리 결과(성공 = true, 실패 = false)를
+        result 에 담아 결과에 따라 클라이언트를 다른 페이지로 안내한다.
+         */
         boolean result = userService.회원가입(user);
-        if (???) {
-            // TODO 6. 성공 시 로그인 페이지로 redirect 하시오
-            return "???";
-        } else {
-            // TODO 7. 실패 시 회원가입 페이지로 redirect 하시오 (이메일 중복 에러 파라미터 포함)
-            return "???";
+        if (result) { // 회원가입을 성공했을 경우 로그인을 위하여
+            // 개발자가 로그인페이지로 클라이언트를 이동처리
+            return "redirect:/user/login";
+        } else { // result 가 false 일 경우
+            return "redirect:/user/resister";
         }
     }
 
