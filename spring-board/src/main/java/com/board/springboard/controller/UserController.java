@@ -20,6 +20,7 @@ public class UserController {
      *
      * @return user/register.jsp
      */
+    @GetMapping("/user/register")
     public String registerView() {
         return "user/register";
     }
