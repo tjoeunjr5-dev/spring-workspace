@@ -39,9 +39,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/board/list">게시판</a>
                 </li>
-                <!-- TODO 9. 회원가입 링크를 추가하시오 (/user/register) -->
                 <li class="nav-item">
-                    <a class="nav-link" href="???">회원가입</a>
+                    <a class="nav-link" href="/user/register">회원가입</a>
                 </li>
             </ul>
         </div>

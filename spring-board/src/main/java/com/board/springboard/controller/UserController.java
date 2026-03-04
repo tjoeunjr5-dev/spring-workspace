@@ -16,7 +16,6 @@ public class UserController {
      * 회원가입 페이지 이동
      * @return user/register.jsp
      */
-    // TODO 4. 회원가입 페이지로 이동하는 GET 매핑 주소를 작성하시오 (/user/register)
     public String registerView() {
         return "user/register";
     }
@@ -28,7 +27,7 @@ public class UserController {
      * @param user 작성된 회원 데이터
      * @return 성공 → 로그인 페이지 / 실패 → 회원가입 페이지
      */
-    // TODO 5. 회원가입 처리하는 POST 매핑 주소를 작성하시오 (/user/register)
+    @PostMapping("/user/register")
     public String register(User user) {
         /*
         UserService 의 회원가입 기능을 실행한다.
@@ -49,8 +48,8 @@ public class UserController {
      * 로그인 페이지 이동
      * @return user/login.jsp
      */
-    // TODO 8. 로그인 페이지로 이동하는 GET 매핑 주소를 작성하시오 (/user/login)
+    @GetMapping("/user/login")
     public String loginView() {
-        return "???";
+        return "user/login";
     }
 }
