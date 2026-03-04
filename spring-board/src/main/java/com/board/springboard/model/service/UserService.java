@@ -11,9 +11,10 @@ public class UserService {
     private final UserMapper userMapper;
 
     /**
-     *
-     * @param email
-     * @return
+     * 이메일 중복 여부를 확인하는 메서드
+     * DB에 동일한 이메일이 존재하면 true, 존재하지 않으면 false 반환
+     * @param email 중복 확인할 이메일 주소
+     * @return   true = 이미 사용중인 이메일 / false = 사용 가능한 이메일
      */
     public boolean 이메일중복체크기능(String email){
        /*
@@ -38,9 +39,10 @@ public class UserService {
     }
 
     /**
-     *
-     * @param user
-     * @return
+     * 회원가입을 처리하는 메서드
+     * 이메일 중복 확인 후 중복이 아닐 경우에만 DB에 회원 정보를 저장
+     * @param user 가입할 회원 정보가 담긴 객체(name, email)
+     * @return true = 회원가입 성공 / false = 이메일 중복으로 인한 가입 실패
      */
     public boolean 회원가입(User user) {
         // 이메일이 중복일 경우 회원가입을 할 수 없도록 회원가입 중단

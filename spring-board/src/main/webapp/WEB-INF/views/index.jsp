@@ -29,23 +29,23 @@
         }
 
         .card:hover {
-            /* TODO 5. 카드 hover시 위로 4px 이동하시오 */
             transform: translateY(-4px);
         }
     </style>
 </head>
 <body>
 
-<!-- TODO 6. 네비게이션 바를 작성하시오 -->
-<!-- 조건 : 왼쪽에 브랜드명(SpringBoard), 오른쪽에 게시판 링크(/board/list) -->
 <nav class="navbar navbar-expand-lg shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="/">SpringBoard</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <!-- TODO 7. 게시판 링크를 작성하시오 -->
                     <a class="nav-link" href="/board/list">게시판</a>
+                </li>
+                <!-- TODO 9. 회원가입 링크를 추가하시오 (/user/register) -->
+                <li class="nav-item">
+                    <a class="nav-link" href="???">회원가입</a>
                 </li>
             </ul>
         </div>
