@@ -1,6 +1,9 @@
 package com.board.springboard.model.mapper;
 
+import com.board.springboard.model.dto.Product;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * 전체 목록 반환타입 List<개발자가 만든 class 문서 파일 명칭>  기능명칭(대부분 매개변수 존재하지 않음);
@@ -20,12 +23,15 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ProductMapper {
     //제품 전체 목록 조회
-
+    List<Product> 전체제품목록();
     //제품 단건 조회
-
+    Product 제품단건(int id);
     //제품 추가
+    void 제품추가(Product product);
 
     //제품 수정
+    void 제품수정(Product product);
 
     //제품 삭제
+    void 제품삭제(int id);
 }
