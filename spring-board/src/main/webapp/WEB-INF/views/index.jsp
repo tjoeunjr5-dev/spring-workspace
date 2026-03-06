@@ -19,7 +19,6 @@ server.servlet.force=true
     </div>
 </section>
 
-
 <section class="py-5">
     <div class="container">
         <div class="row g-4 justify-content-center">
@@ -46,3 +45,7 @@ server.servlet.force=true
 </section>
 
 <%@ include file="common/footer.jsp" %>
+
+
+
+
