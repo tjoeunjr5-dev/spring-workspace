@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -153,6 +154,28 @@ public class UserController {
             redirectAttributes.addFlashAttribute("error", "사진 업로드에 실패했습니다.");
         }
         return  "redirect:/user/profile";
+    }
+
+
+    @PostMapping("/user/profile/edit")
+    public String 유저정보수정(@ModelAttribute User user,
+                         HttpSession session,
+                         RedirectAttributes redirectAttributes) {
+
+        User 로그인유저 = (User) session.getAttribute("loginUser");
+        if (로그인유저 == null) return "redirect:/user/login";
+
+        // 세션에서 꺼낸 id 를 수정할 user 객체에 세팅
+        user.setId(로그인유저.getId());
+
+        userService.유저정보수정(user);
+
+        // 세션 최신 정보로 갱신
+        User 최신유저 = userService.유저단건조회(로그인유저.getId());
+        session.setAttribute("loginUser", 최신유저);
+
+        redirectAttributes.addFlashAttribute("msg", "정보가 수정되었습니다.");
+        return "redirect:/user/profile";
     }
 
 }

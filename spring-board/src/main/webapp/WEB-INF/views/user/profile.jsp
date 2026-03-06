@@ -25,20 +25,30 @@
         <button class="btn btn-dark mt-2">저장하기</button>
     </form>
 
-    <table class="table mt-3">
-        <tr>
-            <td>이름</td>
-            <td>${user.name}</td>
-        </tr>
-        <tr>
-            <td>이메일</td>
-            <td>${user.email}</td>
-        </tr>
-        <tr>
-            <td>가입일</td>
-            <td>${user.create_at}</td>
-        </tr>
-    </table>
+    <!-- TODO 5: 다음주에 진행할 진도 미리보기 -->
+    <form action="/user/profile/edit" method="post">
+
+        <table class="table mt-3">
+            <tr>
+                <td>이름</td>
+                <td>
+                    <input type="text" name="name" value="${user.name}" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>
+                    <input type="text" name="email" value="${user.email}" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <td>가입일</td>
+                <td>${user.create_at}</td>
+            </tr>
+        </table>
+
+        <button type="submit" class="btn btn-dark">저장하기</button>
+    </form>
     <a href="/" class="btn btn-outline-dark">메인으로</a>
 </div>
 

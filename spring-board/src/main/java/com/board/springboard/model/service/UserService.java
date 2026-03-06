@@ -146,4 +146,8 @@ public class UserService {
     public User 유저단건조회(int id) {
         return userMapper.유저단건조회(id);
     }
+
+    public void 유저정보수정(User user) {
+        userMapper.유저정보수정(user);
+    }
 }

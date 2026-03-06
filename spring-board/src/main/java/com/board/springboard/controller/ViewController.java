@@ -12,6 +12,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+/*
+api 주소들의 모음
+ @GetMapping
+  endpoint = "/"               도메인이 정의 내리는 마지막 지점
+  endpoint = "/board/detail"
+  endpoint = "/board/list"
+  endpoint = "/board/write"
+  endpoint = "/board/edit"
+  endpoint = "/board/delete"
+ @PostMapping
+  endpoint = "/board/write"
+
+⭕ @Controller     ⭕
+
+❌ @RestController ❌
+ */
+
+
 @Controller // jsp 나 html 템플릿과 소비자가 연결해야하는 api 주소 작성
 @RequiredArgsConstructor // 이 한줄이 생성자 코드를 자동 생성해준다.
 public class ViewController {
@@ -25,7 +43,6 @@ public class ViewController {
         this.boardService = boardService; -> 클래스 필드에 직접 대입해서 사용하겠다.
     }
      */
-
     /**
      * 메인 페이지로 이동
      * @return index.jsp
@@ -34,13 +51,11 @@ public class ViewController {
     public String indexView() {
         return "index";
     }
-
     /*
     <a href="/board/detail?no=${board.board_no}">
         ${board.title}
     </a>
      */
-
     /**
      * 게시물 상세 조회 페이지 이동
      * @param board_no 조회할 게시물 번호
@@ -51,17 +66,16 @@ public class ViewController {
     public String detailView(@RequestParam("no") int board_no, Model model) {
         // 조회수 증가 및 상세 데이터 가져오기 처리
         // 가져온 데이터를 board 폴더 내에 있는 detail 전달
-
         Board boardData = boardService.boardDetail(board_no);
         model.addAttribute("board", boardData);
         return "board/detail";
     }
-
     /**
      * 게시물 목록 조회 및 페이지 이동
      * @param model 게시물 리스트 데이터를 전달하기 위한 객체
      * @return      board/product_list.jsp
      */
+
     @GetMapping("/board/list")
     public String listView(Model model) {
         List<Board> boardListData = boardService.findAllBoard();
@@ -73,7 +87,6 @@ public class ViewController {
          */
         return "board/list";
     }
-
     /**
      * 게시물 작성 페이지 이동
      * @return board/write.jsp
@@ -82,18 +95,17 @@ public class ViewController {
     public String writeView() {
         return "board/write";
     }
-
     /**
      * 게시물 작성 처리 (DB저장)
      * @param board 작성된 데이터가 담긴 DTO
      * @return      게시물 목록으로 리다이렉트
      */
+
     @PostMapping("/board/write")
     public String wrtieBoard(Board board) {
         boardService.writeBoard(board);
         return "redirect:/board/list";
     }
-
     /**
      * 게시물 수정 이동 (기존 데이터 조회 포함)
      * @param board_no 수정해야하는 게시물 번호

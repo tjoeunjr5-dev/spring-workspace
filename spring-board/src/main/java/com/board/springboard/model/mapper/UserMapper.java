@@ -57,4 +57,6 @@ public interface UserMapper {
      */
     void 프로필사진수정(User user);
     User 유저단건조회(int id);
+    void 유저정보수정(User user);
+
 }
