@@ -141,4 +141,10 @@ public class UserService {
        // 나중에 해지할 주석 3번 : return userMapper.프로필사진수정(db저장할유저정보);
 
     }
+
+
+    // TODO 3: 반환타입, 매개변수, mapper 호출부를 채우세요
+    public User 유저단건조회(int id) {
+        return userMapper.유저단건조회(id);
+    }
 }
