@@ -51,14 +51,13 @@
         if (input.files && input.files[0]) {
             const reader = new FileReader();
             reader.onload = function (event) {
-                preview.src = event.target.result; // 선택한 사진 미리보기
+                preview.src = event.target.result;
                 preview.style.display = "block";
                 if (noImg) {
                     noImg.style.display = "none";
                 }
             };
             reader.readAsDataURL(input.files[0]);
-
         }
     }
 </script>

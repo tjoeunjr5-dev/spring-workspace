@@ -56,7 +56,5 @@ public interface UserMapper {
      * @param user id + profile_img 값이 담긴 User 객체를 SQL로 전달
      */
     void 프로필사진수정(User user);
-
-    // TODO 2: 반환타입과 매개변수를 채우세요 (XML의 id값과 메서드명이 일치해야 합니다)
     User 유저단건조회(int id);
 }
