@@ -4,7 +4,8 @@ import com.board.springboard.model.dto.User;
 import com.board.springboard.model.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,8 @@ public class UserController {
 
     private final UserService userService;
     /**
+     * import org.springframework.beans.factory.annotation.Value;
+     *
      * file.upload.path = C:/프로필사진을 업로드할 경로
      *
      * 프로필 사진 업로드 경로를 키이름으로 가져와서 외부에 노출되지 않도록 한다.
