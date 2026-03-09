@@ -3,7 +3,6 @@ db:
   username: root
   password: tjee1234
 
-file:
-  upload:
-    path: C:/uploads/profile
+upload:
+  profile-path: C:/uploads/profile
 
