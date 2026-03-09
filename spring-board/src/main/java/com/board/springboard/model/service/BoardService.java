@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor // new 자바객체파일() 생략
@@ -41,14 +42,22 @@ public class BoardService {
         if(imageFile != null & !imageFile.isEmpty()) {
         // TODO 2 : 회사컴퓨터 or 개발자컴퓨터에 저장 폴더 없으면 자동 생성
             File folder = new File(boardUploadPath);
+            if (!folder.exists()) folder.mkdirs();
 
         // TODO 3 : UUID + 원본 확장자로 파일명 생성 (중복파일명 충돌 방지)
+            String 원본파일이름 = imageFile.getOriginalFilename();
+            String 확장자 = 원본파일이름.substring(원본파일이름.lastIndexOf("."));
+            String 저장할파일 = UUID.randomUUID().toString()+확장자;
 
         // TODO 4 : 회사컴퓨터 or 개발자컴퓨터에 실제 클라이언트가 전달한 파일 저장
+            File 파일저장 = new File(boardUploadPath + "/" + 저장할파일);
+            imageFile.transferTo(파일저장);
 
         // TODO 5 : DB에 저장할 웹 접근 경로를 Board 객체 세팅
-        // 실제 회사컴퓨터 or 개발자컴퓨터에 올라가는 접근 경로 uploads/board
-        // 웹 접근 경로 : board
+            String 웹에서_접근할_경로 = "/board/" + 저장할파일;
+            // String 웹에서_접근할_경로 = "/board" + 저장할파일;
+            // board파일이름랜덤.png 로 board가 파일이름 앞에 붙는 신세가 된다.
+            board.setAttach_img(웹에서_접근할_경로);
         }
         // TODO 6 : DB에 게시물 저장 (이미지 없으면 attach_img = null 로 저장되며, 수정할 일 없음)
         boardMapper.게시물추가(board);
