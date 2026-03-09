@@ -23,7 +23,9 @@
         <div class="py-3" style="min-height: 200px; white-space: pre-wrap;">
             ${board.content}
         </div>
-
+        <c:if test="${not empty board.attach_img}">
+            <img src="${board.attach_img}">
+        </c:if>
         <hr>
 
         <div class="text-end">
@@ -42,13 +44,14 @@
             --%>
 
             <button type="button" class="btn btn-danger"
-                    onclick="게시물삭제기능${board.board_no}">삭제</button>
+                    onclick="게시물삭제기능${board.board_no}">삭제
+            </button>
         </div>
     </div>
 </div>
 <script>
     function 게시물삭제기능(board_no) {
-        if(confirm("정말 삭제하시겠습니까?")) {
+        if (confirm("정말 삭제하시겠습니까?")) {
             location.href = "/board/delete?no=" + board_no;
         }
     }
