@@ -1,6 +1,5 @@
 package com.board.springboard.controller;
 
-
 import com.board.springboard.model.dto.Board;
 import com.board.springboard.model.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +34,6 @@ api 주소들의 모음
 
 ❌아직 안합니다. @RestController ❌ -> DB에서 가져온 데이터를 Json 형태로 화면에서 보여주는 것
  */
-
 
 @Controller // jsp 나 html 템플릿과 소비자가 연결해야하는 api 주소 작성
 @RequiredArgsConstructor // 이 한줄이 생성자 코드를 자동 생성해준다.
@@ -88,7 +86,6 @@ public class ViewController {
      * @param model 게시물 리스트 데이터를 전달하기 위한 객체
      * @return board/product_list.jsp
      */
-
     @GetMapping("/board/list")
     public String listView(Model model) {
         List<Board> boardListData = boardService.findAllBoard();
@@ -160,6 +157,7 @@ public class ViewController {
         boardService.writeBoard(board, imageFiles);
         return "redirect:/board/list";
     }
+
     /**
      * 게시물 수정 이동 (기존 데이터 조회 포함)
      *
