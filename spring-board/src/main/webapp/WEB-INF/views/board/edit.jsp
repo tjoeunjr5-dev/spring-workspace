@@ -16,13 +16,12 @@
 
         <div class="mb-3">
             <label for="title" class="form-label fw-semibold">제목</label>
-            <input type="text" id="title" name="title" class="form-control" value="${board.title}" required>
+            <input type="text" id="title" name="title" class="form-control" value="${board.title}" >
         </div>
 
         <div class="mb-3">
             <label for="content" class="form-label fw-semibold">내용</label>
-            <input type="text" id="content" name="content" class="form-control" rows="10" value="${board.content}"
-                   required>
+            <input type="text" id="content" name="content" class="form-control" rows="10" value="${board.content}">
         </div>
 
         <div class="text-end">
@@ -37,10 +36,28 @@
     function       수정완료버튼기능()   {}
     */
     function 수정완료버튼기능(){
+        // 태그내에 작성된 요소(=value) 를 가져와 작성 점검을 하기 위하여 특정 공간에 데이터 임시 보관
+        const 제목 = document.getElementById("title");
+       // const 공백확인까지된_제목 = document.getElementById("title").value.trim();
+        const 콘텐츠 = document.getElementById("content");
+
+        // 검증
+        if(제목.value.trim() === "") {
+            alert("제목을 입력해주세요.");
+            제목.focus();
+            return;
+        }
+
+        if(내용.value.trim() === "") {
+            alert("내용 입력해주세요.");
+            콘텐츠.focus();
+            return;
+        }
+
         const 백엔드로_전달할_데이터들 = {
                   board_no : document.getElementById("board_no").value,
-                  title    : document.getElementById("title").value,
-                  content  : document.getElementById("content").value
+                  title    : 제목,
+                  content  : 콘텐츠
         };
         fetch("/board/edit", {
             method: 'PUT',
