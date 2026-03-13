@@ -41,16 +41,16 @@
         결과창.innerHTML = `<div class="text-center text-muted">검색중입니다...</div>`;
 
         try {
-            const 결과 = await fetch("/user/find-email", {
+            const 백엔드에서_응답한_데이터 = await fetch("/user/find-email", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({name: 이름})
             });
 
-            const json_변환_결과 = await res.json();
+            const 결과 = await 백엔드에서_응답한_데이터.json();
 
-            if(json_변환_결과.email) {
-                결과창.innerHTML = `<div class="alert alert-success">이메일 : ${json_변환_결과.email}</div>`;
+            if(결과.email) {
+                결과창.innerHTML = `<div class="alert alert-success">이메일 : ${결과.email}</div>`;
             } else {
                 결과창.innerHTML = `<div class="alert alert-warning">해당 이름의 유저를 찾을 수 없습니다.</div>`;
             }
