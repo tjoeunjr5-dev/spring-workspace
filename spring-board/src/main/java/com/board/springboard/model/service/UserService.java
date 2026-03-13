@@ -84,6 +84,7 @@ public class UserService {
      * @return 조회된 User 객체 / 없으면 null
      */
     public User 이메일로유저찾기(String email) {
+
         return userMapper.이메일로유저찾기(email);
     }
 
