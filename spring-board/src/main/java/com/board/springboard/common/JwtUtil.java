@@ -47,9 +47,7 @@ public class JwtUtil {
     public void 초기화() {
         this.키 = Keys.hmacShaKeyFor(시크릿키값.getBytes());
     }
-
     // 토큰만들기
-
     /**
      * 액세스 토큰 발급 (30분 짜리) 사이트에서 움직임이 있으면 30분 초기화 매번 진행
      **/
@@ -63,7 +61,6 @@ public class JwtUtil {
     public String 리프레시토큰만들기(String email) {
         return 토큰빌드(email, 리프레시토큰만료기간);
     }
-
     private String 토큰빌드(String email, long 만료시간ms) {
         Date 지금 = new Date();
         return Jwts.builder()
@@ -73,16 +70,13 @@ public class JwtUtil {
                 .signWith(키)                                      // 서명 (위변조 방지)
                 .compact();
     }
-
     // 토큰 읽기
-
     /**
      * 토큰에서 이메일 꺼내기
      */
     public String 이메일가져오기(String token) {
         return 토큰파싱(token).getSubject();
     }
-
     /**
      * 토큰이 유효한지 확인 (true = 정상 / false = 만료 or 변조)
      */
