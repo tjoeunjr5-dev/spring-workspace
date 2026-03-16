@@ -1,0 +1,21 @@
+db:
+  url: jdbc:mysql://localhost:3306/mydb
+  username: root
+  password: tjee1234
+
+upload:
+  profile-path: C:/uploads/profile
+  board-path: C:/uploads/board
+
+
+# EMAIL
+mail:
+  username: your-email@gmail.com  # email
+  password: your-app-password
+# password app password 16자리로 이루어짐 2차 비밀번호 인증 통해 발급
+
+# JWT secret
+# 256bit 이상 랜덤 문자열로 반드시 변경
+jwt:
+  config:
+    secret: springboard-jwt-secret-key-2026-change-this-please!!!
