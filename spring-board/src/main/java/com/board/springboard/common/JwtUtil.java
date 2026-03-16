@@ -1,5 +1,6 @@
 package com.board.springboard.common;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -90,4 +91,11 @@ public class JwtUtil {
         }
     }
 
+    public Claims 토큰파싱(String token) {
+        return Jwts.parser()
+                .verifyWith(키)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
+    }
 }
