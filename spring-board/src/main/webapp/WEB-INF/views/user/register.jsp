@@ -79,9 +79,35 @@
         <div class="text-center mt-3">
             <a href="/user/login" class="text-muted">이미 계정이 있으신가요? 로그인</a>
         </div>
-
     </div>
 </div>
+<script>
+    // const = 내부 데이터 변동 불가 let = 내부 데이터 변동 가능 변수
+    let 이메일인증완료 = false; // true
+    // const 이메일인증완료 로 작성하면  이메일인증완료 공간은 데이터 변경 불가능한 공간으로 처리되어 true 변경할 수 없다.
+    // var -> 심하게 레거시한 코드 추천 XXX
+
+    async function 인증번호발송() {
+        const email = document.getElementById("email").value.trim();
+        if (!email) {
+            alert("이메일을 입력하세요.");
+            return;
+        }
+
+        const res = await fetch("/user/send-code", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({email}), // email : email 은 백엔드에서 받는 공간의 명칭과 프론트엔드에서 전달하는 공간의 명칭이 다를 때
+        })
+        if (res.ok) {
+            document.getElementById("인증번호영역").style.display = "block";
+            showAlert("info", "인증번호가 발송되었습니다.(5분 유효");
+        } else {
+            showAlert("danger", "발송에 실패했습니다.");
+        }
+    }
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
