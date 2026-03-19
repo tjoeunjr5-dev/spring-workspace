@@ -25,7 +25,6 @@
         <button class="btn btn-dark mt-2">저장하기</button>
     </form>
 
-    <!-- TODO 5: 다음주에 진행할 진도 미리보기 -->
     <form action="/user/profile/edit" method="post">
 
         <table class="table mt-3">
