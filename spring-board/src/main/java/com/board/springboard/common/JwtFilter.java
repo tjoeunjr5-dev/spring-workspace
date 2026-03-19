@@ -33,6 +33,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
     private final JwtUtil jwtUtil; //토큰 검증은 util 맡긴다.
+    private final CookieUtil cookieUtil;
 
     /**
      * protected     void       doFilterInternal
@@ -40,9 +41,10 @@ public class JwtFilter extends OncePerRequestFilter {
      * 자식만     없다          doFilter = 필터를 실행하겠다.
      * 이용가능                 Internal = Spring 이 만든 내부 기능을
      * *********************************************************************************
-     * @param 요청               브라우저가 보낸 요청 경로
-     * @param 응답               브라우저 요청에 대한 응답을 서버가 전달할 때 들고갈 정보
-     * @param 다음필터           우리 필터 작업은 끝났고, 다음 작업으로 바통터치할 때 사용
+     *
+     * @param 요청   브라우저가 보낸 요청 경로
+     * @param 응답   브라우저 요청에 대한 응답을 서버가 전달할 때 들고갈 정보
+     * @param 다음필터 우리 필터 작업은 끝났고, 다음 작업으로 바통터치할 때 사용
      * @throws ServletException 서버   연결    에러 발생하는 경우
      * @throws IOException      데이터 주고 받을 때 발생하는 경우
      */
@@ -50,8 +52,8 @@ public class JwtFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest 요청,
                                     HttpServletResponse 응답,
                                     FilterChain 다음필터) throws ServletException, IOException {
-        String token = 쿠키에서토큰꺼내기(요청); // 쿠키에서 access_token 꺼내기 없으면 null 반환
-
+        //     String token = 쿠키에서토큰꺼내기(요청); // 쿠키에서 access_token 꺼내기 없으면 null 반환
+        String token = cookieUtil.가져오기(요청, "access_token");
         // 토큰이 있고 유효하면 -> 스프링 보안팀(=시큐리티)에 로그인 상태 등록
         // 토큰이 존재하고     만료/변조된 토큰이 아니면
         if (token != null && jwtUtil.유효토큰인지확인하는기능(token)) {
@@ -76,16 +78,16 @@ public class JwtFilter extends OncePerRequestFilter {
     /**
      * 쿠키에서 access_token 값만 꺼내기
 
-    private String 쿠키에서AccessToken만꺼낼수있는기능(HttpServletRequest 요청) {
-        Cookie[] 쿠키목록 = 요청.getCookies(); // 요청에 담긴 모든 쿠키 가져오기
-        if (쿠키목록 == null) return null; // 쿠키 자체가 없으면 null 반환
+     private String 쿠키에서AccessToken만꺼낼수있는기능(HttpServletRequest 요청) {
+     Cookie[] 쿠키목록 = 요청.getCookies(); // 요청에 담긴 모든 쿠키 가져오기
+     if (쿠키목록 == null) return null; // 쿠키 자체가 없으면 null 반환
 
-        // 쿠키 목록들을 스트림으로 변환
-        return Arrays.stream(쿠키목록)
-                .filter(c -> "access_token".equals(c.getName())) // access_token 이름인 쿠키만 통과
-                .map(Cookie::getValue) // 쿠키 객체에서 값(토큰 문자열) 만 꺼내기
-                .findFirst() // 첫 번째 결과 가져오기
-                .orElse(null); // 없으면 null 반환
-    }
+     // 쿠키 목록들을 스트림으로 변환
+     return Arrays.stream(쿠키목록)
+     .filter(c -> "access_token".equals(c.getName())) // access_token 이름인 쿠키만 통과
+     .map(Cookie::getValue) // 쿠키 객체에서 값(토큰 문자열) 만 꺼내기
+     .findFirst() // 첫 번째 결과 가져오기
+     .orElse(null); // 없으면 null 반환
+     }
      **/
 }
