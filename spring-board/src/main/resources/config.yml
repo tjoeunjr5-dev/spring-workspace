@@ -10,8 +10,8 @@ upload:
 
 # EMAIL
 mail:
-  username: your-email@gmail.com  # email
-  password: your-app-password
+  username: tjoeun.jr5@gmail.com  # email
+  password: chjk wemd eooc wflj  # 2차 비밀번호 활성화 -> 앱 비밀번호 설정하면 랜덤 16자리
 # password app password 16자리로 이루어짐 2차 비밀번호 인증 통해 발급
 
 # JWT secret
